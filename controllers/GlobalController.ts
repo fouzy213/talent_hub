@@ -1,22 +1,39 @@
-import { Request, Response} from "express";
-export class GlobalController { 
-    protected request : Request; 
-    protected response: Response;
+import { Request, Response } from "express";
+import { announcements, skills } from "../src/data/data";
 
-    constructor(request: Request, response: Response){
-        this.request = request; 
-        this.response = response; 
-    }
+export class GlobalController {
+  protected request: Request;
+  protected response: Response;
 
-    public homepage(){
-        this.response.render('./homepage',{
-            
-});}
+  constructor(request: Request, response: Response) {
+    this.request = request;
+    this.response = response;
+  }
 
-    // public error_404(){
-    //     this.response.render('../errors/404');
-    // }
+  public homepage() {
+    const lastannouce = [...announcements]
+      .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
+      .slice(0, 3)
+      .map(annonce => ({
+        ...annonce,
+        skillNames: (annonce.skills || []).map(id => {
+          const skill = skills.find(skill => skill.id === id);
+          return skill ? skill.name : "Inconnu";
+        }),
+      }));
 
+  
 
-
+    this.response.render("./homepage", {
+      announcements: lastannouce,
+    });
+    
+    
+    
+  }
+  public allPage(){
+    this.response.render("./allpage", {
+      announcements
+    });
+  }
 }

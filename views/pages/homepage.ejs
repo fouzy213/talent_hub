@@ -1,2 +1,21 @@
 <%- include('../partials/head') %> <%- include('../partials/navbar') %> <%-
 include('../partials/header') %>
+
+
+<div class="title_and_container">
+<h2>Les dernières annonces</h2>
+
+<div class="all_box">
+   <% announcements.forEach(annonce => { %>
+    <div class="container"><h3 class="title_box"><%= annonce.title %></h3>
+    <p class="paragr_box"><%= annonce.description %></p>
+    <p><strong>Compétences :</strong> <%= annonce.skillNames.join(", ") %></p>
+  </div>
+  <% }) %>
+</div>
+<div class="button_bottom">
+<button class="button_blue">Consulter toutes les annonces</button>
+</div>
+</div>
+</div>
+
