@@ -1,8 +1,6 @@
 import { announcements, skills } from "../src/data/data";
 import { Request, Response } from "express";
 
-
-
 export class AllPageController{
 
 
@@ -28,6 +26,7 @@ export class AllPageController{
 
     this.response.render("./allpage", {
       announcements: allannounce,
+    total: allannounce.length,
     });
   }
 }

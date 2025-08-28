@@ -19,21 +19,15 @@ export class GlobalController {
         skillNames: (annonce.skills || []).map(id => {
           const skill = skills.find(skill => skill.id === id);
           return skill ? skill.name : "Inconnu";
+          
         }),
       }));
-
+      
+      this.response.render("./homepage", {
+        announcements: lastannouce,
+      });
+      
+    }}
+    
+    
   
-
-    this.response.render("./homepage", {
-      announcements: lastannouce,
-    });
-    
-    
-    
-  }
-  public allPage(){
-    this.response.render("./allpage", {
-      announcements
-    });
-  }
-}

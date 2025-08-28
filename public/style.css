@@ -85,6 +85,7 @@ header {
   border-radius: 5px;
   background-color: #154d71;
   color: aliceblue;
+  text-decoration-line: none;
 }
 
 .title_and_container {
@@ -110,4 +111,9 @@ header {
 .button_bottom {
   display: flex;
   justify-content: flex-end;
+}
+.container_link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
