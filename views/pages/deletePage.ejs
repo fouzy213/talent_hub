@@ -16,7 +16,7 @@
         required
       />
     </div>
-    <form action="/delete/<%= annonce.id %>" method="POST"></form>
+    <form action="/delete/<%= annonce.id %>" method="POST">
     <p>
       Le mot de passe défini lors de la création de l'annonce est nécéssaire
       pour suprimer l'annonce.Sans ce mot de passe,celles-ci ne seront pas
@@ -26,4 +26,5 @@
   <button type="submit" class="button_blue">
     Supprimer définitivement l'annonce
   </button>
+</form>
 </div>
