@@ -1,27 +1,18 @@
-<%- include('../partials/head') %> <%- include('../partials/navbar') %> <%
-detailannonce.map(annonce => { %>
-<div class="container">
-  <h3 class="title_box"><%= annonce.title %></h3>
-  <p class="paragr_box"><%= annonce.description %></p>
-  <p class="techno"><%= annonce.createdAt %></p>
-  <p class="techno"><%= annonce.salary %></p>
-</div>
-<% }) %>
+<%- include('../partials/head') %> <%- include('../partials/navbar') %>
+<div class="all_detail_card">
+  <a href="/delete/<%= detailannonce.id %>" class="button_blue"
+    >Supprimer cette annonce</a
+  >
 
-<!-- {
-    id: 104,
-    title: 'Développeur Fullstack Node.js / React',  
-    description: 'Projet SaaS en pleine croissance, recherche d’un profil polyvalent frontend/backend.',  
-    skills: [ 1, 2, 3, 4, 6, 7 ],
-    typeId: 1,
-    startDate: 2025-09-10T00:00:00.000Z,
-    salary: 4000,
-    salaryUnitId: 1,
-    companyName: 'CloudWorks',
-    companyEmail: 'jobs@cloudworks.io',
-    companyPhone: '+33 9 87 65 43 21',
-    password: 'stackdev',
-    createdAt: 2025-08-25T09:20:00.000Z,
-    updatedAt: 2025-08-25T09:20:00.000Z
-  }
-] -->
+  <div class="container">
+    <h3 class="title_box"><%= detailannonce.title %></h3>
+    <h3 class="title_box"><%= detailannonce.companyName %></h3>
+
+    <h4><%= detailannonce.skills.join(", ") %></h4>
+    <p class="paragr_box"><%= detailannonce.description %></p>
+    <p class="techno">Créée le : <%= detailannonce.createdAt %></p>
+    <p class="techno">Salaire : <%= detailannonce.salary %> €</p>
+    <p class="techno">Entreprise : <%= detailannonce.companyEmail %></p>
+    <p class="techno">Telephone : <%= detailannonce.companyPhone %></p>
+  </div>
+</div>

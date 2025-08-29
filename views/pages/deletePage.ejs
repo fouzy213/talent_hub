@@ -1,0 +1,29 @@
+<%- include('../partials/head') %> <%- include('../partials/navbar') %>
+<div class="button_validate">
+  <a href="/detail/<%= annonce.id %>" class="button_blue">Annuler</a>
+</div>
+
+<div class="all_delete">
+  <h1>Suppression de l'annonce <%= annonce.title %></h1>
+  <fieldset>
+    <div class="form-group">
+      <label for="password">Mot de passe :</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        class="form-input"
+        required
+      />
+    </div>
+    <form action="/delete/<%= annonce.id %>" method="POST"></form>
+    <p>
+      Le mot de passe défini lors de la création de l'annonce est nécéssaire
+      pour suprimer l'annonce.Sans ce mot de passe,celles-ci ne seront pas
+      supprimée.
+    </p>
+  </fieldset>
+  <button type="submit" class="button_blue">
+    Supprimer définitivement l'annonce
+  </button>
+</div>

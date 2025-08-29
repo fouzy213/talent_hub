@@ -14,17 +14,37 @@ export class DetailController{
 
 
     const detailId = parseInt(this.request.params.id);
-  const detailannonce = announcements.filter(detailannonce => detailannonce.id === detailId);
+ const detailannonce = announcements.find(a => a.id === detailId);
+
+
+
+
+this.response.render('detailPage', { detailannonce ,skills,missionTypes,salaryUnits,announcementComments});
+
+
+;
+
+}
+
+  public deletePage() {
+    const id = parseInt(this.request.params.id);
+    const annonce = announcements.find(a => a.id === id);
+
+    if (!annonce) return this.response.status(404).send("Annonce non trouvée");
+
+    this.response.render("deletePage", { annonce });
+  }
+
  
-console.log(detailannonce);
+  public deleteAnnounce() {
+    const id = parseInt(this.request.params.id);
+    const index = announcements.findIndex(a => a.id === id);
 
-
-
-    this.response.render('detailPage',{
-detailannonce,
-
-
-
-
-
-    });}}
+    if (index !== -1) {
+      announcements.splice(index, 1);
+      this.response.redirect("/"); 
+    } else {
+      this.response.status(404).send("Annonce non trouvée");
+    }
+  }
+}
