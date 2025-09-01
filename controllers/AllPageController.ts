@@ -24,7 +24,7 @@ export class AllPageController{
 
   
 
-    this.response.render("/pages/allpage", {
+    this.response.render("allpage", {
       announcements: allannounce,
     total: allannounce.length,
     });
